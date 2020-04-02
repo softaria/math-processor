@@ -58,9 +58,9 @@ Result: either HTTP code 400 with the error explanation or json as following
 ```
 {
  "ok": {"True" or "False"}
- "result": {Only exists if ok=True. Contains the execution result}.
- "error: {Only exists if ok=False. Contains human readable error description.
- "errorCode": {Only exists if ok=False. Contains error code (see below).
+ "result": {Only exists if ok=True. Contains the execution result}
+ "error: {Only exists if ok=False. Contains human readable error description}
+ "errorCode": {Only exists if ok=False. Contains error code (see below)}
 }
 ```
 Error codes:
