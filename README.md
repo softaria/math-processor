@@ -85,7 +85,7 @@ You can try it yourself without installing the math-processor. Just use one inst
 
 You are allowed to run any method, supportd by SymPy.
 
-For example here is a jon for rewriting tan(x) in term of sinuses.
+For example here is a jon for rewriting tan(x) via sinuses.
 
 ```
 {
