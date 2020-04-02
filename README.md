@@ -5,6 +5,17 @@ SymPy is a great library for symbolic mathematics. It aims to become a full-feat
 
 This project is a simple REST wrapper around SymPy, which allows calling most (but not all) SymPy functions via HTTP requests.
 
+# What can it do?
+
+The service allows:
+
+* Calling any SymPy functions and methods on any epression, parseable with SymPy.
+* Getting results in SymPy expression language.
+* Generating 2d and 3d plots and returning them in PNG or SVG format.
+* Running several additional custom functionality. In particular:
+   * Solving integrals step by step and providing the step by step solution.
+   * Checking if two mathematical expressions are equivalent and, if yes telling which one is simpler.
+
 # Installation 
 
 The simplest way to run math-processor is using its [docker image](https://hub.docker.com/repository/docker/softaria/math-processor/)
