@@ -193,7 +193,7 @@ Query parameters:
 
 ### Method
 
-It name what type of plot you want to get. In fact it is the name of sympy plotting functions:
+It specifies what type of plot you want to get. In fact, it is the name of sympy plotting functions:
 
 * plot
 * plot_parametric
