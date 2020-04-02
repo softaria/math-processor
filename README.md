@@ -181,7 +181,7 @@ URL: http://localhost:80/api/v1/plot
 
 Supported HTTP method: GET
 
-Meaning: It uses [SymPy plotting](https://docs.sympy.org/latest/modules/plotting.html) and [matplotlib](https://matplotlib.org/) to generate a 2d, 3d and parametric plots.
+Meaning: It uses [SymPy plotting](https://docs.sympy.org/latest/modules/plotting.html) and [matplotlib](https://matplotlib.org/) to generate 2d, 3d and parametric plots.
 
 Query parameters:
 
