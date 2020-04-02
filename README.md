@@ -298,7 +298,7 @@ Error codes are:
 
 * BAD_ARGUMENT - can't parse at least one of the passed expressions
 * BAD_METHOD - no method for given name found
-* METHOD_FAILURE - internal error occured while executing the method
+* METHOD_FAILURE - internal error occurred while executing the method
 
 ## Integral steps method
 
