@@ -65,7 +65,9 @@ Let's call method doit() on SymPy expression Integral(Mul(Integer(2),Symbol('x')
 
 Let's do it with [curl](https://curl.haxx.se/)
 
+```
 curl -d "@doit.json" -X POST  -H "Content-Type: application/json" http://localhost:80/api/v1/method
+```
 
 where doit.json contains following:
 
@@ -75,9 +77,9 @@ where doit.json contains following:
 
 The result will be:
 
-'''
+```
 {"ok": true, "result": "Integer(1)"}
-'''
+```
 
 You can try it yourself without installing the math-processor. Just use one installed at https://math-processor.math-editor.com
 
