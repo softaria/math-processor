@@ -242,7 +242,7 @@ Where error codes are:
 
 Optional parameter.
 
-If ommitted or not equal to 'svg' then png format is used.
+If omitted or not equal to 'svg' then png format is used.
 If equal to 'svg' the result is generated in SVG format.
 
 ### Example
