@@ -125,7 +125,7 @@ URL: http://localhost:80/api/v1/function
 
 Supported HTTP method: POST
 
-Meaning: It calls a function defined in 'sympy' module with provide arguments (SymPy expressions)
+Meaning: It calls a function defined in 'sympy' module with the provided arguments (SymPy expressions)
 
 Body: json as following:
 ```
