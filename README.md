@@ -94,9 +94,9 @@ The result will be:
 
 You can try it yourself without installing the math-processor. Just use one installed at https://math-processor.math-editor.com
 
-You are allowed to run any method, supportd by SymPy.
+You are allowed to run any method, supported by SymPy.
 
-For example here is a jon for rewriting tan(x) via sinuses.
+For example, here is a jon for rewriting tan(x) via sinuses.
 
 ```
 {
