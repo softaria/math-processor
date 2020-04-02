@@ -175,4 +175,7 @@ The result:
 {"ok": true, "result": "Integer(1)"}
 ```
 
+## Generating a plot
+
+
 
