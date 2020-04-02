@@ -360,10 +360,10 @@ where equivalency type is one of:
 
 the value of "si" could be one of the following:
 
-* first - you have to simplify the second expression more than the first in order to make them identical
-* second - you have to simplify the first expression more than the second in order to make them identical
-* none - you have to simplify both expression to make them identical or do not have simplify them at all.
-* unknown - returned when the expressions are "different"
+* first - you have to simplify the second expression more than the first in order to make them identical.
+* second - you have to simplify the first expression more than the second in order to make them identical.
+* none - you have to simplify both expression to make them identical or do not have to simplify them at all.
+* unknown - returned when the expressions are "different".
 
 
 ## Mirroring
