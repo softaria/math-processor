@@ -354,8 +354,8 @@ The positive result is:
 where equivalency type is one of:
 
 * identical - expressions are literally identical
-* equiv - expressions are equivalent when you do some algebra transformation
-* equivCalc - expression are equivalent but only if you have to apply calculus transformation (like integrating, differentiating or calculating limit)
+* equiv - expressions become equal when you do some algebra transformation
+* equivCalc - expression become equal only if you apply calculus transformation (like integrating, differentiating or calculating limit)
 * different - expressions are not equivalent
 
 the value of "si" could be one of the following:
