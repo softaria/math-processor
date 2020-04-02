@@ -108,7 +108,9 @@ For example here is a jon for rewriting tan(x) via sinuses.
 }
 ```
 
-where result will be:
+It is the equivalent of typing in python: Tan(x).rewrite(sin)
+
+The result will be:
 
 ```
 {
