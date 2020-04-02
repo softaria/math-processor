@@ -68,7 +68,7 @@ Error codes:
 * BAD_ARGUMENT - the provided object or some of the provided arguments can't be parsed as SymPy expression.
 * METHOD_FAILURE - the call of the method failed.
 
-In contrast to errors described in the response JSON that are useful in runtime, errors with HTTP code 400 means the calling code must be fixed. In particular, they occur when you do not pass JSON body at all or when the JSON lacks one of its required fields.
+In contrast to errors described in the response JSON that are useful in runtime, errors with HTTP code 400 mean the calling code must be fixed. In particular, they occur when you do not pass JSON body at all or when the JSON lacks one of its required fields.
 
 Example:
 
