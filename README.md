@@ -276,7 +276,7 @@ Body: JSON as following:
 }
 ```
 
-Where method is one of the following:
+Where the method is one of the following:
 
 * integral_steps - calculate integral step by step and return the step by step solution
 * equiv - check if two expressions are equivalent
