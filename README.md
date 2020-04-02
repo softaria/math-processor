@@ -28,7 +28,7 @@ Please replace 80 with a port where you want the service to run.
 
 # Usage
 
-There are following end points in the math-processor REST service:
+There are following endpoints in the math-processor REST service:
 
 1. /api/v1/method
 2. /api/v1/function
