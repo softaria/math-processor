@@ -43,7 +43,7 @@ URL: http://localhost:80/api/v1/method
 
 Supported HTTP method: POST
 
-Meaning: It calls python methon on the provided SymPy object (expression).
+Meaning: It calls python method on the provided SymPy object (expression).
 
 Body: json as following:
 ```
@@ -58,17 +58,17 @@ Result: either HTTP code 400 with the error explanation or json as following
 ```
 {
  "ok": {"True" or "False"}
- "result": {Only exists if ok=True. Contains the exection result}.
- "error: {Only exists if ok=False. Conains human readable error description.
+ "result": {Only exists if ok=True. Contains the execution result}.
+ "error: {Only exists if ok=False. Contains human readable error description.
  "errorCode": {Only exists if ok=False. Contains error code (see below).
 }
 ```
 Error codes:
 
-* BAD_ARGUMENT - the provoded object can't be parsed as SymPy expression.
+* BAD_ARGUMENT - the provided object or some of the provided arguments can't be parsed as SymPy expression.
 * METHOD_FAILURE - the call of the method failed.
 
-In contrast to errors described in the response json that are useful in runtime, errors with HTTP code 400 means the calling code must be fixed. In particular they occur when you do not pass json body at all or when the json lacks one of ith required fields.
+In contrast to errors described in the response json that are useful in runtime, errors with HTTP code 400 means the calling code must be fixed. In particular they occur when you do not pass json body at all or when the json lacks one of its required fields.
 
 Example:
 
@@ -118,4 +118,61 @@ The result will be:
    "result": "Mul(Integer(2), Pow(sin(Symbol('x')), Integer(2)), Pow(sin(Mul(Integer(2), Symbol('x'))), Integer(-1)))"
 } 
 ```
+
+## Calling a SymPy function
+
+URL: http://localhost:80/api/v1/function
+
+Supported HTTP method: POST
+
+Meaning: It calls a function defined in 'sympy' module with provide arguments (SymPy expressions)
+
+Body: json as following:
+```
+{
+   "method":"{name of a function from 'sympy' python module to call}",
+   "args":[{an array of arguments to be passed to the function}],
+}
+```
+
+Result: either HTTP code 400 with the error explanation or json as following
+```
+{
+ "ok": {"True" or "False"}
+ "result": {Only exists if ok=True. Contains the execution result}.
+ "error: {Only exists if ok=False. Contains human readable error description.
+ "errorCode": {Only exists if ok=False. Contains error code (see below).
+}
+```
+Error codes:
+
+* BAD_ARGUMENT - some of the provided arguments can't be parsed as SymPy expression.
+* METHOD_FAILURE - the call of the function failed.
+
+Example:
+
+Let's call simplify(Pow(sin(x),2) + Pow(cos(x),2))
+
+```
+curl -d "@simplify.json" -X POST  -H "Content-Type: application/json" http://localhost:80/api/v1/function
+```
+
+simplify.json:
+
+```
+{
+  "method": "simplify",
+  "args": [
+    "Pow(sin(x),2) + Pow(cos(x),2)"
+
+  ]
+}
+```
+
+The result:
+
+```
+{"ok": true, "result": "Integer(1)"}
+```
+
 
