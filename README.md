@@ -177,5 +177,80 @@ The result:
 
 ## Generating a plot
 
+URL: http://localhost:80/api/v1/plot
+
+Supported HTTP method: GET
+
+Meaning: It uses [SymPy plotting](https://docs.sympy.org/latest/modules/plotting.html) and [matplotlib](https://matplotlib.org/) to generate a 2d, 3d and parametric plots.
+
+Query parameters:
+
+* method
+* args
+* params
+* checkOnly
+* format
+
+### Method
+
+It name what type of plot you want to get. In fact it is the name of sympy plotting functions:
+
+* plot
+* plot_parametric
+* plot3d
+* plot3d_parametric_line
+* plot3d_parametric_surface
+
+The functions are described here: https://docs.sympy.org/latest/modules/plotting.html
+
+### Args
+
+Ags is a json array of SymPy expressions to plot. We have an array here as some of the plotting functions above require more than one mathematical function.
+
+### Params
+
+Optional parameter.
+
+Params is a plain key-value pairs formatted as json.
+They are parsed and passed as the kwargs to corresponding SymPy plotting fucntion (for details: https://docs.sympy.org/latest/modules/plotting.html). Its goal to pass all the additional parameters such as required plot size or its resolution.
+
+### checkOnly
+
+Optional parameter.
+
+If present, the math-processor only checks if the passed arguments are valid and returns json formatted answer instead of the plot itself. Useful when your code wants to know if the plot was generated perfectly or if the plot image is broken because of error.
+
+If passed, the result will be json as following:
+
+```
+{
+ "ok": {"true" or "false"}
+ "result": {Only exists if ok=true. Contains the execution result}.
+ "error: {Only exists if ok=false. Contains human readable error description.
+ "errorCode": {Only exists if ok=False. Contains error code (see below).
+}
+```
+
+Where error codes are:
+
+* BAD_ARGUMENT - at least one of the arguments can't be parsed
+* BAD_METHOD - 'method' parameter does not equal to any of the supported values listed above
+* METHOD_FAILURE - internal error occurs when the sympy plotting method was called
 
 
+### format
+
+Optional parameter.
+
+If ommitted or not equal to 'svg' then png format is used.
+If equal to 'svg' the result is generated in SVG format.
+
+### Example
+
+```
+   https://math-processor.math-editor.com/api/v1/plot?method=plot3d&args=["cos(Add(Abs(Symbol('x'))%2CAbs(Symbol('y'))))"]
+```
+
+the result is 
+
+![3d plot](https://math-processor.math-editor.com/api/v1/plot?method=plot3d&args=["cos(Add(Abs(Symbol('x'))%2CAbs(Symbol('y'))))"] "3d plot")
