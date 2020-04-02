@@ -254,3 +254,9 @@ If equal to 'svg' the result is generated in SVG format.
 the result is 
 
 ![3d plot](https://math-processor.math-editor.com/api/v1/plot?method=plot3d&args=["cos(Add(Abs(Symbol('x'))%2CAbs(Symbol('y'))))"] "3d plot")
+
+# Playground
+
+The math-processor is integrated with our math-editor. So, you can try its calculating and plotting functionality here
+
+https://math-editor.com/integrationsDemo.html
