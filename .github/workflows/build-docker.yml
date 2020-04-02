@@ -1,0 +1,14 @@
+name: Publish Docker
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Registry
+      uses: docker/build-push-action@v1
+      with:
+        username: softaria
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: softaria/math-processor
+        tags: latest
