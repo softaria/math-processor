@@ -65,8 +65,8 @@ Result: either HTTP code 400 with the error explanation or json as following
 ```
 Error codes:
 
-BAD_ARGUMENT - the provoded object can't be parsed as SymPy expression.
-METHOD_FAILURE - the call of the method failed.
+* BAD_ARGUMENT - the provoded object can't be parsed as SymPy expression.
+* METHOD_FAILURE - the call of the method failed.
 
 In contrast to errors described in the response json that are useful in runtime, errors with HTTP code 400 means the calling code must be fixed. In particular they occur when you do not pass json body at all or when the json lacks one of ith required fields.
 
