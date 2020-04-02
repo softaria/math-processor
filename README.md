@@ -282,11 +282,118 @@ Where method is one of the following:
 * equiv - check if two expressions are equivalent
 * mirror - parse the provided expression and return its canonical SymPy form
 
+If the custom method ends with error it returns following json:
+
+The negative result is:
+
+```
+{
+ "ok": "false"
+ "error: {Contains human readable error description.}
+ "errorCode": {Contains error code (see below).}
+}
+```
+
+Error codes are:
+
+* BAD_ARGUMENT - can't parse at least one of the passed expressions
+* BAD_METHOD - no method for given name found
+* METHOD_FAILURE - internal error occured while executing the method
+
 ## Integral steps method
 
+```
+curl  -d "@integrate.json" -X POST  -H "Content-Type: application/json" http://localhost:80/api/v1/custom
+```
+
+where integrate.json is, for example:
+
+```
+{
+  "method": "integral_steps",
+  "args": [
+    "exp(x) / (1 + exp(2 * x))",
+    "Symbol('x')"
+  ]
+}
+```
+
+Look [here](https://docs.sympy.org/latest/modules/integrals/integrals.html#sympy.integrals.manualintegrate.integral_steps) for the result explanation.
+
+## Checking equivalence
+
+```
+curl -d "@equiv.json" -X POST  -H "Content-Type: application/json" http://localhost:80/api/v1/custom
+```
+
+where equiv.json could be (note it must contain exactly two arguments):
+
+```
+{
+  "method": "equiv",
+  "args": [
+    "Pow(sin(x),2) + Pow(cos(x),2)",
+    "1"
+  ]
+}
+```
+
+The positive result is:
+
+```
+{ 
+   "ok": true, 
+   "result": 
+           {
+            "eq": "{eqivalency type}", 
+            "si": "{which expression is simpler}"
+           }
+} 
+```
+
+where equivalency type is one of:
+
+* identical - expressions are literally identical
+* equiv - expressions are equivalent when you do some algebra transformation
+* equivCalc - expression are equivalent but only if you have to apply calculus transformation (like integrating, differentiating or calculating limit)
+* different - expressions are not equivalent
+
+the value of "si" could be one of the following:
+
+* first - you have to simplify the second expression more than the first in order to make them identical
+* second - you have to simplify the first expression more than the second in order to make them identical
+* none - you have to simplify both expression to make them identical or do not have simplify them at all.
+* unknown - returned when the expressions are "different"
+
+
+## Mirroring
+
+```
+curl -d "@mirror.json" -X POST  -H "Content-Type: application/json" http://localhost:80/api/v1/custom
+```
+
+where mirror.json could be:
+
+```
+{
+  "method": "mirror",
+  "args": [
+    "Pow(sin(x),2) + Pow(cos(x),2)"
+  ]
+}
+```
+
+It returns canonical SymPy form of the given expression. Or reports an error.
+
+E.g. for the exression given above the answer is:
+
+```
+{"ok": true, "result": "Add(Pow(sin(Symbol('x')), Integer(2)), Pow(cos(Symbol('x')), Integer(2)))"}
+```
 
 # Playground
 
-The math-processor is integrated with our math-editor. So, you can try its calculating and plotting functionality here
+The math-processor is integrated with our math-editor. 
+So, you can try its calculating and plotting functionality here
 
 https://math-editor.com/integrationsDemo.html
