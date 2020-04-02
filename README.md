@@ -1,2 +1,3 @@
 # math-processor
-Simple REST service around SymPy
+Simple REST service around [SymPy](https://sympy.org)
+
