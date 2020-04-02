@@ -22,7 +22,7 @@ class Executor:
 
     def __init__(self):
         self.runners = {
-            "integral_steps": lambda args: integral_steps(args[0], args[1]),
+            "integral_steps": lambda args: srepr(integral_steps(args[0], args[1])),
             "equiv": lambda args: self.equivJson(args[0],args[1]),
             "mirror": lambda args: srepr(args[0]), 
         }    
