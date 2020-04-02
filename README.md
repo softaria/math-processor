@@ -44,14 +44,14 @@ Body: json as following:
 ```
 
 Result: either HTTP code 400 with the error explanation or json as following
-
+```
 {
  "ok": {"True" or "False"}
  "result": {Only exists if ok=True. Contains the exection result}.
  "error: {Only exists if ok=False. Conains human readable error description.
  "errorCode": {Only exists if ok=False. Contains error code (see below).
 }
-
+```
 Error codes:
 
 BAD_ARGUMENT - the provoded object can't be parsed as SymPy expression.
