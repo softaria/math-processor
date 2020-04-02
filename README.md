@@ -225,9 +225,9 @@ If passed, the result will be json as following:
 ```
 {
  "ok": {"true" or "false"}
- "result": {Only exists if ok=true. Contains the execution result}.
- "error: {Only exists if ok=false. Contains human readable error description.
- "errorCode": {Only exists if ok=False. Contains error code (see below).
+ "result": {Only exists if ok=true. Contains the execution result}
+ "error: {Only exists if ok=false. Contains human readable error description}
+ "errorCode": {Only exists if ok=False. Contains error code (see below)}
 }
 ```
 
