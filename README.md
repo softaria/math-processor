@@ -211,7 +211,7 @@ Ags is a JSON array of SymPy expressions to plot. We have an array here as some 
 
 Optional parameter.
 
-Params is a plain key-value pairs formatted as JSON.
+Params are plain key-value pairs formatted as JSON.
 They are parsed and passed as the kwargs to corresponding SymPy plotting fucntion (for details: https://docs.sympy.org/latest/modules/plotting.html). Its goal to pass all the additional parameters such as required plot size or its resolution.
 
 ### checkOnly
