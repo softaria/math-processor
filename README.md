@@ -255,6 +255,36 @@ the result is
 
 ![3d plot](https://math-processor.math-editor.com/api/v1/plot?method=plot3d&args=["cos(Add(Abs(Symbol('x'))%2CAbs(Symbol('y'))))"] "3d plot")
 
+# Calling custom methods
+
+Besides calling SymPy built in functions and methods, the math-processor has several manually coded functionality its authors found usable. For now it is:
+
+* Ability to get step by step solution for integrals
+* Ability to check if 2 expressions are equivalent
+* Mirror method (see below for details)
+
+URL: http://localhost:80/api/v1/custom
+
+Supported HTTP method: POST
+
+Body: json as following: 
+
+```
+{
+  "method": "{name of custom method to call}",
+  "args": [ {json array of expressions to pass to the custom method}  ]
+}
+```
+
+Where method is one of the following:
+
+* integral_steps - calculate integral step by step and return the step by step solution
+* equiv - check if two expressions are equivalent
+* mirror - parse the provided expression and return its canonical SymPy form
+
+## Integral steps method
+
+
 # Playground
 
 The math-processor is integrated with our math-editor. So, you can try its calculating and plotting functionality here
