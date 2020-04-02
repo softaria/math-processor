@@ -43,9 +43,9 @@ URL: http://localhost:80/api/v1/method
 
 Supported HTTP method: POST
 
-Meaning: It calls python method on the provided SymPy object (expression).
+Meaning: It calls the python method on the provided SymPy object (expression).
 
-Body: json as following:
+Body: JSON as following:
 ```
 {
    "object":"{Sympy expression to be transformed to SymPy object. We will call method on this object.}"
@@ -54,7 +54,7 @@ Body: json as following:
 }
 ```
 
-Result: either HTTP code 400 with the error explanation or json as following
+Result: either HTTP code 400 with the error explanation or JSON as following
 ```
 {
  "ok": {"True" or "False"}
@@ -68,7 +68,7 @@ Error codes:
 * BAD_ARGUMENT - the provided object or some of the provided arguments can't be parsed as SymPy expression.
 * METHOD_FAILURE - the call of the method failed.
 
-In contrast to errors described in the response json that are useful in runtime, errors with HTTP code 400 means the calling code must be fixed. In particular they occur when you do not pass json body at all or when the json lacks one of its required fields.
+In contrast to errors described in the response JSON that are useful in runtime, errors with HTTP code 400 means the calling code must be fixed. In particular they occur when you do not pass JSON body at all or when the JSON lacks one of its required fields.
 
 Example:
 
@@ -96,7 +96,7 @@ You can try it yourself without installing the math-processor. Just use one inst
 
 You are allowed to run any method, supported by SymPy.
 
-For example, here is json for rewriting tan(x) via sinuses.
+For example, here is JSON for rewriting tan(x) via sinuses.
 
 ```
 {
@@ -127,7 +127,7 @@ Supported HTTP method: POST
 
 Meaning: It calls a function defined in 'sympy' module with the provided arguments (SymPy expressions)
 
-Body: json as following:
+Body: JSON as following:
 ```
 {
    "method":"{name of a function from 'sympy' python module to call}",
@@ -135,7 +135,7 @@ Body: json as following:
 }
 ```
 
-Result: either HTTP code 400 with the error explanation or json as following
+Result: either HTTP code 400 with the error explanation or JSON as following
 ```
 {
  "ok": {"True" or "False"}
@@ -205,22 +205,22 @@ The functions are described here: https://docs.sympy.org/latest/modules/plotting
 
 ### Args
 
-Ags is a json array of SymPy expressions to plot. We have an array here as some of the plotting functions above require more than one mathematical function.
+Ags is a JSON array of SymPy expressions to plot. We have an array here as some of the plotting functions above require more than one mathematical function.
 
 ### Params
 
 Optional parameter.
 
-Params is a plain key-value pairs formatted as json.
+Params is a plain key-value pairs formatted as JSON.
 They are parsed and passed as the kwargs to corresponding SymPy plotting fucntion (for details: https://docs.sympy.org/latest/modules/plotting.html). Its goal to pass all the additional parameters such as required plot size or its resolution.
 
 ### checkOnly
 
 Optional parameter.
 
-If present, the math-processor only checks if the passed arguments are valid and returns json formatted answer instead of the plot itself. Useful when your code wants to know if the plot was generated perfectly or if the plot image is broken because of error.
+If present, the math-processor only checks if the passed arguments are valid and returns JSON formatted answer instead of the plot itself. Useful when your code wants to know if the plot was generated perfectly or if the plot image is broken because of error.
 
-If passed, the result will be json as following:
+If passed, the result will be JSON as following:
 
 ```
 {
@@ -267,12 +267,12 @@ URL: http://localhost:80/api/v1/custom
 
 Supported HTTP method: POST
 
-Body: json as following: 
+Body: JSON as following: 
 
 ```
 {
   "method": "{name of custom method to call}",
-  "args": [ {json array of expressions to pass to the custom method}  ]
+  "args": [ {JSON array of expressions to pass to the custom method}  ]
 }
 ```
 
@@ -282,7 +282,7 @@ Where method is one of the following:
 * equiv - check if two expressions are equivalent
 * mirror - parse the provided expression and return its canonical SymPy form
 
-If the custom method ends with error it returns following json:
+If the custom method ends with error it returns following JSON:
 
 The negative result is:
 
