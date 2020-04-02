@@ -83,6 +83,26 @@ The result will be:
 
 You can try it yourself without installing the math-processor. Just use one installed at https://math-processor.math-editor.com
 
+You are allowed to run any method, supportd by SymPy.
 
+For example here is a jon for rewriting tan(x) in term of sinuses.
 
+```
+{
+  "method": "rewrite",
+  "object":"tan(x)",
+  "args": [
+    "sin"
+  ]
+}
+```
+
+where result will be:
+
+```
+{
+   "ok": true, 
+   "result": "Mul(Integer(2), Pow(sin(Symbol('x')), Integer(2)), Pow(sin(Mul(Integer(2), Symbol('x'))), Integer(-1)))"
+} 
+```
 
