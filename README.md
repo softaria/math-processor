@@ -257,7 +257,7 @@ the result is
 
 # Calling custom methods
 
-Besides calling SymPy built in functions and methods, the math-processor has several manually coded functionality its authors found usable. For now it is:
+Besides calling SymPy built-in functions and methods, the math-processor has several manually coded functionality its authors found usable. For now it is:
 
 * Ability to get step by step solution for integrals
 * Ability to check if 2 expressions are equivalent
