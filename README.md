@@ -26,7 +26,7 @@ There are following end points in the math-processor REST service:
 
 Below we suppose the server is running at http://localhost:80
 
-## Calling SymPy method
+## Calling a method on SymPy object
 
 URL: http://localhost:80/api/v1/method
 
