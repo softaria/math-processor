@@ -9,7 +9,7 @@ This project is a simple REST wrapper around SymPy, which allows calling most (b
 
 The service allows:
 
-* Calling any SymPy functions and methods on any eхpression, parseable with SymPy.
+* Calling any SymPy functions and methods on any math eхpression, parseable with SymPy.
 * Getting results in SymPy expression language.
 * Generating 2d and 3d plots and returning them in PNG or SVG format.
 * Running several additional custom functionality. In particular:
