@@ -28,13 +28,12 @@ class Executor:
         }    
 
     def equiv(self,a1,a2):
-       
         if a1==a2:
             return (Equiv.identical,Simpler.none)
-        s1 = simplify(a1)
+        s1 = simplify(a1,doit=False)
         if s1==a2:
             return (Equiv.equiv,Simpler.second)
-        s2 = simplify(a2)
+        s2 = simplify(a2,doit=False)
         if s2==a1:
             return (Equiv.equiv,Simpler.first)
 
@@ -44,8 +43,8 @@ class Executor:
         v1 = a1.doit()
         v2 = a2.doit()   
 
-        dif1 = simplify(v1-a2)
-        dif2 = simplify(v2-a1)
+        dif1 = simplify(v1-a2,doit=False)
+        dif2 = simplify(v2-a1,doit=False)
        
         if dif1==dif2 and dif1==0:
             if v1==a2:
@@ -101,7 +100,7 @@ class Executor:
         except:
             return {"ok": False, "error": str(sys.exc_info()[1]), "errorCode": "METHOD_FAILURE"}
 
-    def run_function(self, method: str, args: []):
+    def run_function(self, method: str, args: [],params:dict):
         parsed_args = []
         for arg in args:
             try:
@@ -110,7 +109,7 @@ class Executor:
                 return {"ok": False, "error": "Can't parse argument "+arg + " because of "+str(sys.exc_info()[1]), "errorCode": "BAD_ARGUMENT"}
         try:
             func = getattr(sys.modules['sympy'], method)
-            result = srepr(func(*parsed_args))
+            result = srepr(func(*parsed_args,**params))
             return {"ok": True, "result": result}
         except:
             return {"ok": False, "error": str(sys.exc_info()[1]), "errorCode": "METHOD_FAILURE"}

@@ -43,9 +43,17 @@ def execute_function():
     if 'args' not in request.json:
         abort(400, "no 'args' field found in the JSON")
 
+    if 'params' in request.json:
+        try:
+            params = request.json['params']
+        except:
+            abort(400, "can't parse json:"+request.args['params'])
+    else:
+        params = dict()
+    
     method = request.json["method"]
     args = request.json["args"]
-    result = executor.run_function(method, args)
+    result = executor.run_function(method, args, params)
     return Response(json.dumps(result), mimetype="application/json")
 
 
