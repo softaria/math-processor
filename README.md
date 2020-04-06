@@ -1,6 +1,6 @@
 # math-processor
 
-![Publish Docker](https://github.com/softaria/math-processor/workflows/Publish%20Docker/badge.svg)
+[![Publish Docker](https://github.com/softaria/math-processor/workflows/Publish%20Docker/badge.svg)](https://hub.docker.com/repository/docker/softaria/math-processor)
 
 Simple REST service around [SymPy](https://sympy.org)
 
