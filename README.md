@@ -1,4 +1,7 @@
 # math-processor
+
+![Publish Docker](https://github.com/softaria/math-processor/workflows/Publish%20Docker/badge.svg)
+
 Simple REST service around [SymPy](https://sympy.org)
 
 SymPy is a great library for symbolic mathematics. It aims to become a full-featured computer algebra system (CAS).
