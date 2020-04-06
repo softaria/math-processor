@@ -132,8 +132,24 @@ Body: JSON as following:
 {
    "method":"{name of a function from 'sympy' python module to call}",
    "args":[{an array of arguments to be passed to the function}],
+   "params":{{optional object with key-value pairs to pass to the function as a last argument}}
 }
 ```
+
+While 'method' and 'args' are self-explanatory, 'params' needs comments:
+Sympy methods often has the last arguments for passing options. E.g. [simplify](https://docs.sympy.org/latest/modules/simplify/simplify.html) has such optional parameters as
+
+```
+  ratio=1.7, measure=<function count_ops>, rational=False, inverse=False, doit=True
+```
+
+Params is here to pass that kind of parameters. For example to pass doit=False, use 
+
+```
+ { "doit":false} 
+```
+
+as params.
 
 Result: either HTTP code 400 with the error explanation or JSON as following
 ```
